@@ -24,20 +24,20 @@ defmodule PokemonTypeChart.Service do
   end
 
   defp get_weaknesses(charts) do
-    charts
-    |> Enum.flat_map(fn chart -> chart.weaknesses end)
-    |> Type.clean_types()
+    get_cleaned_types(charts, :weaknesses)
   end
 
   defp get_resistances(charts) do
-    charts
-    |> Enum.flat_map(fn chart -> chart.resistances end)
-    |> Type.clean_types()
+    get_cleaned_types(charts, :resistances)
   end
 
   defp get_immunities(charts) do
-    charts
-    |> Enum.flat_map(fn chart -> chart.immunities end)
+    get_cleaned_types(charts, :immunities)
+  end
+
+  defp get_cleaned_types(chart, field) do
+    chart
+    |> Enum.flat_map(fn chart -> chart[field] end)
     |> Type.clean_types()
   end
 end
