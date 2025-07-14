@@ -17,9 +17,9 @@ defmodule PokemonTypeChart.Service do
     immunities = get_immunities(charts)
 
     %{
-      weaknesses: weaknesses -- (resistances ++ immunities),
-      resistances: resistances -- (weaknesses ++ immunities),
-      immunities: immunities
+      weaknesses: Enum.sort(weaknesses -- (resistances ++ immunities)),
+      resistances: Enum.sort(resistances -- (weaknesses ++ immunities)),
+      immunities: Enum.sort(immunities)
     }
   end
 
