@@ -1,4 +1,4 @@
-defmodule PokemonTypeChart.Controllers.PokemonTypeController do
+defmodule PokemonTypeChart.Controller do
   alias PokemonTypeChart.Api.Request
   alias PokemonTypeChart.Api.Response
   alias PokemonTypeChart.Api.Pokemon
