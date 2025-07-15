@@ -23,7 +23,9 @@ defmodule PokemonTypeChart.MixProject do
   defp deps do
     [
       {:plug_cowboy, "~> 2.7"},
-      {:jason, "~> 1.4"}
+      {:jason, "~> 1.4"},
+      {:validate, "~> 1.3"},
+      {:exsync, "~> 0.4", only: :dev}
     ]
   end
 end

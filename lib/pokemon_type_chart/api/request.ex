@@ -4,16 +4,20 @@ defmodule PokemonTypeChart.Api.Request do
   @derive Jason.Encoder
   defstruct [:pokemon]
 
-  @type t :: %__MODULE__{
-          pokemon: Pokemon.t()
-        }
+  @validation %{
+    "pokemon" => [
+      required: true,
+      type: :map,
+      map: Pokemon.validation()
+    ]
+  }
 
-  def from_map(%{"pokemon" => pokemon}) do
-    case Pokemon.from_map(pokemon) do
-      {:ok, res} -> {:ok, %__MODULE__{pokemon: res}}
-      {:error, _} -> {:error, "Missing or invalid fields in pokemon"}
+  def from_map(%{"pokemon" => pokemon} = request) do
+    with {:ok, _} <- Validate.validate(request, @validation),
+         {:ok, res} <- Pokemon.from_map(pokemon) do
+      {:ok, %__MODULE__{pokemon: res}}
     end
   end
 
-  def from_map(_), do: {:error, "Missing or invalid fields"}
+  def from_map(_), do: {:error, [%{message: "Missing or invalid fields"}]}
 end
