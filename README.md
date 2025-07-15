@@ -1,4 +1,4 @@
-# pokemo-type-chart
+# pokemon-type-chart
 
 Microservice for retrieving Pokémon type effectiveness chart.
 
@@ -52,7 +52,7 @@ curl -X POST http://localhost:4000/pokemon/type/chart \
   {
     "pokemon": {
       "name": "string",
-      "types": ["string", ...]
+      "types": ["string"]
     }
   }
   ```
@@ -61,12 +61,12 @@ curl -X POST http://localhost:4000/pokemon/type/chart \
   {
     "pokemon": { 
       "name": "string",
-      "types": ["string", ...]
+      "types": ["string"]
     },
     "type_chart": { 
-        "weaknesses": ["string", ...],
-        "resitances": ["string", ...],
-        "immunities": ["string", ...]
+        "weaknesses": ["string"],
+        "resitances": ["string"],
+        "immunities": ["string"]
      }
   }
   ```
