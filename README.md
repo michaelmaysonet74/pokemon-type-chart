@@ -1,21 +1,73 @@
-# PokemonTypeChart
+# pokemo-type-chart
 
-**TODO: Add description**
+Microservice for retrieving Pokémon type effectiveness chart.
 
-## Installation
+## Getting Started
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pokemon_type_chart` to your list of dependencies in `mix.exs`:
+### Requirements
 
-```elixir
-def deps do
-  [
-    {:pokemon_type_chart, "~> 0.1.0"}
-  ]
-end
+Elixir `v1.18.0`
+
+### Usage
+
+Install dependencies:
+
+```sh
+mix deps.get
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/pokemon_type_chart>.
+Start the server:
+
+```sh
+mix run --no-halt
+```
+
+Send a POST request to `/pokemon/type/chart` with a JSON body:
+
+```json
+{
+   "pokemon": {
+     "name": "Dragonite",
+     "types": [
+        "Dragon",
+        "Flying"
+     ]
+   }
+}
+```
+
+Example using `curl`:
+
+```sh
+curl -X POST http://localhost:4000/pokemon/type/chart \
+  -H "Content-Type: application/json" \
+  -d '{"pokemon": {"name": "Dragonite", "types": ["Dragon", "Flying"]}}'
+```
+
+### API
+
+- **POST /pokemon/type/chart**  
+  Request body:
+  ```json
+  {
+    "pokemon": {
+      "name": "string",
+      "types": ["string", ...]
+    }
+  }
+  ```
+  Response:
+  ```json
+  {
+    "pokemon": { 
+      "name": "string",
+      "types": ["string", ...]
+    },
+    "type_chart": { 
+        "weaknesses": ["string", ...],
+        "resitances": ["string", ...],
+        "immunities": ["string", ...]
+     }
+  }
+  ```
 
