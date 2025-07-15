@@ -32,6 +32,8 @@ defmodule PokemonTypeChart.Type do
     end
   end
 
+  def normalize_types(_), do: []
+
   def clean_types(types) do
     types
     |> Enum.uniq()
