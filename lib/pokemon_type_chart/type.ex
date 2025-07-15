@@ -23,7 +23,7 @@ defmodule PokemonTypeChart.Type do
   def valid_types, do: @valid_types
 
   def normalize_types(types) when is_list(types) do
-    if Enum.all?(types, fn t -> is_bitstring(t) end) do
+    if Enum.all?(types, &is_bitstring/1) do
       types
       |> Enum.map(&String.downcase/1)
       |> Enum.map(&String.to_existing_atom/1)
