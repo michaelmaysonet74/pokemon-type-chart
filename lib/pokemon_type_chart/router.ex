@@ -8,7 +8,5 @@ defmodule PokemonTypeChart.Router do
 
   post("/pokemon/type/chart", do: PokemonTypeChart.Controller.get_type_chart(conn))
 
-  match _ do
-    send_resp(conn, 404, "Not found")
-  end
+  match(_, do: send_resp(conn, 404, "Not found"))
 end
