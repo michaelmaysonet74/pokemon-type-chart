@@ -44,6 +44,20 @@ curl -X POST http://localhost:4000/pokemon/type/chart \
   -d '{"pokemon": {"name": "Dragonite", "types": ["Dragon", "Flying"]}}'
 ```
 
+### Docker
+
+If you prefer to run this service in a Docker container, you can do so by following these steps:
+
+Build the Docker image:
+```sh
+docker build -t pokemon_type_chart .
+```
+
+Run the Docker container:
+```sh
+docker run -p 4000:4000 pokemon_type_chart
+```
+
 ### API
 
 - **POST /pokemon/type/chart**  
