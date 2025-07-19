@@ -6,7 +6,11 @@ defmodule PokemonTypeChart.Router do
   plug(Plug.Parsers, parsers: [:json], json_decoder: Jason)
   plug(:dispatch)
 
-  post("/pokemon/type/chart", do: PokemonTypeChart.Controller.get_type_chart(conn))
+  post "/pokemon/type/chart" do
+    PokemonTypeChart.Controller.get_type_chart(conn)
+  end
 
-  match(_, do: send_resp(conn, 404, "Not found"))
+  match _ do
+    send_resp(conn, 404, "Not found")
+  end
 end

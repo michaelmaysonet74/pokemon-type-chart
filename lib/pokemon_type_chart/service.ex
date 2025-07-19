@@ -23,17 +23,11 @@ defmodule PokemonTypeChart.Service do
     }
   end
 
-  defp get_weaknesses(charts) do
-    get_cleaned_types(charts, :weaknesses)
-  end
+  defp get_weaknesses(charts), do: get_cleaned_types(charts, :weaknesses)
 
-  defp get_resistances(charts) do
-    get_cleaned_types(charts, :resistances)
-  end
+  defp get_resistances(charts), do: get_cleaned_types(charts, :resistances)
 
-  defp get_immunities(charts) do
-    get_cleaned_types(charts, :immunities)
-  end
+  defp get_immunities(charts), do: get_cleaned_types(charts, :immunities)
 
   defp get_cleaned_types(chart, field) do
     chart
