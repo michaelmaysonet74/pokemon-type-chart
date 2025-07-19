@@ -3,13 +3,7 @@ defmodule PokemonTypeChart.Application do
 
   @impl true
   def start(_type, _args) do
-    children = [
-      {
-        Plug.Cowboy,
-        scheme: :http, plug: PokemonTypeChart.Router, options: [port: get_port()]
-      }
-    ]
-
+    children = [{Bandit, plug: PokemonTypeChart.Router, port: get_port()}]
     opts = [strategy: :one_for_one, name: PokemonTypeChart.Supervisor]
     Supervisor.start_link(children, opts)
   end

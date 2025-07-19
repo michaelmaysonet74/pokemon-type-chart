@@ -22,7 +22,7 @@ defmodule PokemonTypeChart.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:plug_cowboy, "~> 2.7"},
+      {:bandit, "~> 1.7"},
       {:jason, "~> 1.4"},
       {:validate, "~> 1.3"},
       {:exsync, "~> 0.4", only: :dev}
