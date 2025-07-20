@@ -64,7 +64,7 @@ docker run -p 4000:4000 pokemon_type_chart
 
     Response:
     ```json
-    ["string",]
+    ["string"]
     ```
 
 - **GET /types/charts**
