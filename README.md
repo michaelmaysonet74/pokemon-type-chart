@@ -22,7 +22,7 @@ Start the server:
 mix run --no-halt
 ```
 
-Send a POST request to `/pokemon/type/chart` with a JSON body:
+Send a POST request to `/types/charts/pokemon` with a JSON body:
 
 ```json
 {
@@ -39,7 +39,7 @@ Send a POST request to `/pokemon/type/chart` with a JSON body:
 Example using `curl`:
 
 ```sh
-curl -X POST http://localhost:4000/pokemon/type/chart \
+curl -X POST http://localhost:4000/types/charts/pokemon \
   -H "Content-Type: application/json" \
   -d '{"pokemon": {"name": "Dragonite", "types": ["Dragon", "Flying"]}}'
 ```
