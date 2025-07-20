@@ -1,8 +1,8 @@
-defmodule PokemonTypeChart.Api.Request do
-  alias PokemonTypeChart.Api.Pokemon
+defmodule PokemonTypeChart.Api.Request.PokemonTypeChart do
+  alias PokemonTypeChart.Api.Shared.Pokemon
 
   @derive Jason.Encoder
-  defstruct [:pokemon]
+  defstruct pokemon: %Pokemon{}
 
   @validation %{
     "pokemon" => [

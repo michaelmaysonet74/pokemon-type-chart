@@ -5,21 +5,31 @@ defmodule PokemonTypeChart.Controller do
 
   import Plug.Conn
 
-  def get_type_chart(conn) do
-    case Request.from_map(conn.body_params) do
+  def get_types(conn) do
+    respond(conn, Service.get_types())
+  end
+
+  def get_type_charts(conn) do
+    respond(conn, %Response.TypeCharts{
+      type_charts: Service.get_type_charts()
+    })
+  end
+
+  def get_pokemon_type_charts(conn) do
+    case Request.PokemonTypeChart.from_map(conn.body_params) do
       {:ok, req} ->
-        respond(conn, 200, %Response{
+        respond(conn, %Response.PokemonTypeChart{
           pokemon: req.pokemon,
           type_chart: Service.get_type_chart(req.pokemon.types)
         })
 
       {:error, errors} ->
         message = get_error_message(errors)
-        respond(conn, 400, %{error: "Invalid request: #{message}"})
+        respond(conn, %{error: "Invalid request: #{message}"}, 400)
     end
   end
 
-  defp respond(conn, status, response) do
+  defp respond(conn, response, status \\ 200) do
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(status, Jason.encode!(response))

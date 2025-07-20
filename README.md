@@ -60,28 +60,52 @@ docker run -p 4000:4000 pokemon_type_chart
 
 ### API
 
-- **POST /pokemon/type/chart**  
-  Request body:
-  ```json
-  {
-    "pokemon": {
-      "name": "string",
-      "types": ["string"]
+- **GET /types**
+
+    Response:
+    ```json
+    ["string",]
+    ```
+
+- **GET /types/charts**
+
+    Response:
+    ```json
+    {
+        "type_charts": [
+            {
+                "type": "string",
+                "weaknesses": ["string"],
+                "resitances": ["string"],
+                "immunities": ["string"]
+            },
+        ]
     }
-  }
-  ```
-  Response:
-  ```json
-  {
-    "pokemon": { 
-      "name": "string",
-      "types": ["string"]
-    },
-    "type_chart": { 
-        "weaknesses": ["string"],
-        "resitances": ["string"],
-        "immunities": ["string"]
-     }
-  }
-  ```
+    ```
+
+- **POST /types/charts/pokemon**
+
+    Request body:
+    ```json
+    {
+        "pokemon": {
+            "name": "string",
+            "types": ["string"]
+        }
+    }
+    ```
+    Response:
+    ```json
+    {
+        "pokemon": {
+            "name": "string",
+            "types": ["string"]
+        },
+        "type_chart": {
+            "weaknesses": ["string"],
+            "resitances": ["string"],
+            "immunities": ["string"]
+        }
+    }
+    ```
 
