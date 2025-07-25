@@ -103,6 +103,8 @@ defmodule PokemonTypeChart.Chart do
     }
   }
 
+  def type_charts, do: @type_charts
+
   def empty do
     %{
       weaknesses: [],
