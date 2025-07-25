@@ -39,7 +39,7 @@ Send a POST request to `/types/charts/pokemon` with a JSON body:
 Example using `curl`:
 
 ```sh
-curl -X POST http://localhost:4000/types/charts/pokemon \
+curl -X POST http://localhost:4000/pokemon/type-charts \
   -H "Content-Type: application/json" \
   -d '{"pokemon": {"name": "Dragonite", "types": ["Dragon", "Flying"]}}'
 ```
@@ -67,7 +67,7 @@ docker run -p 4000:4000 pokemon_type_chart
     ["string"]
     ```
 
-- **GET /types/charts**
+- **GET /type-charts**
 
     Response:
     ```json
@@ -83,7 +83,7 @@ docker run -p 4000:4000 pokemon_type_chart
     }
     ```
 
-- **POST /types/charts/pokemon**
+- **POST /pokemon/type-charts**
 
     Request body:
     ```json
