@@ -10,11 +10,11 @@ defmodule PokemonTypeChart.Router do
     PokemonTypeChart.Controller.get_types(conn)
   end
 
-  get "/types/charts" do
+  get "/type-charts" do
     PokemonTypeChart.Controller.get_type_charts(conn)
   end
 
-  post "/types/charts/pokemon" do
+  post "/pokemon/type-charts" do
     PokemonTypeChart.Controller.get_pokemon_type_charts(conn)
   end
 
