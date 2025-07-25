@@ -22,7 +22,7 @@ Start the server:
 mix run --no-halt
 ```
 
-Send a POST request to `/types/charts/pokemon` with a JSON body:
+Send a POST request to `/pokemon/type-charts` with a JSON body:
 
 ```json
 {
