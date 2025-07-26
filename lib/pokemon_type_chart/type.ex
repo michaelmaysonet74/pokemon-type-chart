@@ -24,9 +24,11 @@ defmodule PokemonTypeChart.Type do
 
   def normalize_types(types) when is_list(types) do
     if Enum.all?(types, &is_bitstring/1) do
-      types
-      |> Enum.map(&String.downcase/1)
-      |> Enum.map(&String.to_existing_atom/1)
+      Enum.map(types, fn type ->
+        type
+        |> String.downcase()
+        |> String.to_existing_atom()
+      end)
     else
       []
     end
