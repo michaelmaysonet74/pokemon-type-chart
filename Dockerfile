@@ -16,11 +16,11 @@ RUN mix deps.get --only prod
 COPY . .
 
 ENV MIX_ENV=prod
-ENV PORT=4000
+ENV PORT=4001
 
 RUN mix compile
 RUN mix release
 
-EXPOSE 4000
+EXPOSE 4001
 
 CMD ["_build/prod/rel/pokemon_type_chart/bin/pokemon_type_chart", "start"]

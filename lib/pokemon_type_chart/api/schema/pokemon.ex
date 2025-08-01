@@ -1,4 +1,4 @@
-defmodule PokemonTypeChart.Api.Shared.Pokemon do
+defmodule PokemonTypeChart.Schema.Pokemon do
   @derive Jason.Encoder
   defstruct [:name, :types]
 
