@@ -1,5 +1,5 @@
-defmodule PokemonTypeChart.Api.Request.PokemonTypeChart do
-  alias PokemonTypeChart.Api.Shared.Pokemon
+defmodule PokemonTypeChart.Schema.PokemonTypeChartRequest do
+  alias PokemonTypeChart.Schema.Pokemon
 
   @derive Jason.Encoder
   defstruct pokemon: %Pokemon{}
