@@ -32,7 +32,7 @@ defmodule PokemonTypeChart.Type do
 
   def normalize_types(_), do: []
 
-  def clean_types(types) do
+  def format_types(types) do
     types
     |> Enum.uniq()
     |> Enum.map(&capitalize_type/1)

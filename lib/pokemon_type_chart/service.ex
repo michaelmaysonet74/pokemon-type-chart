@@ -23,15 +23,15 @@ defmodule PokemonTypeChart.Service do
     }
   end
 
-  defp get_weaknesses(charts), do: get_cleaned_types(charts, :weaknesses)
+  defp get_weaknesses(charts), do: format_types(charts, :weaknesses)
 
-  defp get_resistances(charts), do: get_cleaned_types(charts, :resistances)
+  defp get_resistances(charts), do: format_types(charts, :resistances)
 
-  defp get_immunities(charts), do: get_cleaned_types(charts, :immunities)
+  defp get_immunities(charts), do: format_types(charts, :immunities)
 
-  defp get_cleaned_types(chart, field) do
+  defp format_types(chart, field) do
     chart
     |> Enum.flat_map(fn chart -> chart[field] end)
-    |> Type.clean_types()
+    |> Type.format_types()
   end
 end
