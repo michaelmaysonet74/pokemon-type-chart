@@ -2,15 +2,6 @@ defmodule PokemonTypeChart.Service do
   alias PokemonTypeChart.Chart
   alias PokemonTypeChart.Type
 
-  def get_types(), do: Type.valid_types()
-
-  def get_type_charts() do
-    Chart.type_charts()
-    |> Map.to_list()
-    |> Enum.sort_by(fn {type, _} -> type end)
-    |> Enum.map(fn {type, chart} -> %{type: type} |> Map.merge(chart) end)
-  end
-
   def get_type_chart(types) when is_list(types) and length(types) <= 2 do
     types
     |> Type.normalize_types()
@@ -32,15 +23,15 @@ defmodule PokemonTypeChart.Service do
     }
   end
 
-  defp get_weaknesses(charts), do: get_cleaned_types(charts, :weaknesses)
+  defp get_weaknesses(charts), do: format_types(charts, :weaknesses)
 
-  defp get_resistances(charts), do: get_cleaned_types(charts, :resistances)
+  defp get_resistances(charts), do: format_types(charts, :resistances)
 
-  defp get_immunities(charts), do: get_cleaned_types(charts, :immunities)
+  defp get_immunities(charts), do: format_types(charts, :immunities)
 
-  defp get_cleaned_types(chart, field) do
+  defp format_types(chart, field) do
     chart
     |> Enum.flat_map(fn chart -> chart[field] end)
-    |> Type.clean_types()
+    |> Type.format_types()
   end
 end

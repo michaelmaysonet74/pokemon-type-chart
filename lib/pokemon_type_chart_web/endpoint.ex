@@ -8,7 +8,7 @@ defmodule PokemonTypeChart.Endpoint do
     Plug.Parsers,
     parsers: [:json],
     pass: ["application/json"],
-    json_decoder: Jason
+    json_decoder: JSON
   )
 
   plug(PokemonTypeChart.Router)

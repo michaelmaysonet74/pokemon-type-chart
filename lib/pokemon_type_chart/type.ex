@@ -1,5 +1,5 @@
 defmodule PokemonTypeChart.Type do
-  @valid_types [
+  @types [
     :bug,
     :dark,
     :dragon,
@@ -20,15 +20,11 @@ defmodule PokemonTypeChart.Type do
     :water
   ]
 
-  def valid_types, do: @valid_types
+  def valid_types?(types), do: Enum.all?(types, &valid?/1)
 
   def normalize_types(types) when is_list(types) do
-    if Enum.all?(types, &is_bitstring/1) do
-      Enum.map(types, fn type ->
-        type
-        |> String.downcase()
-        |> String.to_existing_atom()
-      end)
+    if valid_types?(types) do
+      Enum.map(types, &normalize_type/1)
     else
       []
     end
@@ -36,7 +32,7 @@ defmodule PokemonTypeChart.Type do
 
   def normalize_types(_), do: []
 
-  def clean_types(types) do
+  def format_types(types) do
     types
     |> Enum.uniq()
     |> Enum.map(&capitalize_type/1)
@@ -47,4 +43,18 @@ defmodule PokemonTypeChart.Type do
     |> Atom.to_string()
     |> String.capitalize()
   end
+
+  defp normalize_type(type) do
+    type
+    |> String.downcase()
+    |> String.to_existing_atom()
+  end
+
+  defp valid?(type) when is_binary(type) do
+    normalize_type(type) in @types
+  rescue
+    ArgumentError -> false
+  end
+
+  defp valid?(_), do: false
 end
