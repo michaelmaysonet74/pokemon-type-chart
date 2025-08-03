@@ -13,7 +13,11 @@ defmodule PokemonTypeChart.Controller do
         })
 
       {:error, errors} ->
-        conn |> JSON.send(Validate.Util.errors_to_map(errors), 400)
+        conn
+        |> JSON.send(
+          %{errors: Validate.Util.errors_to_map(errors)},
+          400
+        )
     end
   end
 end
