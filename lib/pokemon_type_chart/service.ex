@@ -2,15 +2,6 @@ defmodule PokemonTypeChart.Service do
   alias PokemonTypeChart.Chart
   alias PokemonTypeChart.Type
 
-  def get_types(), do: Type.valid_types()
-
-  def get_type_charts() do
-    Chart.type_charts()
-    |> Map.to_list()
-    |> Enum.sort_by(fn {type, _} -> type end)
-    |> Enum.map(fn {type, chart} -> %{type: type} |> Map.merge(chart) end)
-  end
-
   def get_type_chart(types) when is_list(types) and length(types) <= 2 do
     types
     |> Type.normalize_types()

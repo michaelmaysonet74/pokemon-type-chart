@@ -60,29 +60,6 @@ docker run -p 4000:4000 pokemon_type_chart
 
 ### API
 
-- **GET /types**
-
-    Response:
-    ```json
-    ["string"]
-    ```
-
-- **GET /type-charts**
-
-    Response:
-    ```json
-    {
-        "type_charts": [
-            {
-                "type": "string",
-                "weaknesses": ["string"],
-                "resitances": ["string"],
-                "immunities": ["string"]
-            },
-        ]
-    }
-    ```
-
 - **POST /pokemon/type-charts**
 
     Request body:

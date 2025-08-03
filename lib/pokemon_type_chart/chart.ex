@@ -1,5 +1,5 @@
 defmodule PokemonTypeChart.Chart do
-  @type_charts %{
+  @type_chart %{
     bug: %{
       weaknesses: [:fire, :flying, :rock],
       resistances: [:fighting, :grass, :ground],
@@ -103,8 +103,6 @@ defmodule PokemonTypeChart.Chart do
     }
   }
 
-  def type_charts, do: @type_charts
-
   def empty do
     %{
       weaknesses: [],
@@ -114,7 +112,7 @@ defmodule PokemonTypeChart.Chart do
   end
 
   def get_chart_by_type(type) when is_atom(type) do
-    @type_charts
+    @type_chart
     |> Map.get(type, empty())
   end
 
