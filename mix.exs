@@ -7,7 +7,7 @@ defmodule PokemonTypeChart.MixProject do
       version: "0.1.0",
       elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps() ++ dev_deps()
     ]
   end
 
@@ -23,8 +23,12 @@ defmodule PokemonTypeChart.MixProject do
   defp deps do
     [
       {:bandit, "~> 1.7"},
-      {:jason, "~> 1.4"},
-      {:validate, "~> 1.3"},
+      {:validate, "~> 1.3"}
+    ]
+  end
+
+  defp dev_deps do
+    [
       {:exsync, "~> 0.4", only: :dev}
     ]
   end

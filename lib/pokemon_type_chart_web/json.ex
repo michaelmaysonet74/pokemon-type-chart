@@ -4,6 +4,6 @@ defmodule PokemonTypeChart.JSON do
   def send(conn, response, status \\ 200) do
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(status, Jason.encode!(response))
+    |> send_resp(status, JSON.encode!(response))
   end
 end
