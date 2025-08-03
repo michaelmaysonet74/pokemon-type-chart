@@ -23,11 +23,7 @@ defmodule PokemonTypeChart.Type do
   def valid_types?(types), do: Enum.all?(types, &valid?/1)
 
   def normalize_types(types) when is_list(types) do
-    if valid_types?(types) do
-      Enum.map(types, &normalize_type/1)
-    else
-      []
-    end
+    if valid_types?(types), do: Enum.map(types, &normalize_type/1), else: []
   end
 
   def normalize_types(_), do: []
