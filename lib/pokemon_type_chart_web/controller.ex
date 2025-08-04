@@ -9,7 +9,7 @@ defmodule PokemonTypeChart.Controller do
         conn
         |> JSON.send(%{
           pokemon: pokemon,
-          type_chart: Service.get_type_chart(Map.get(pokemon, "types"))
+          type_chart: Service.get_type_chart(pokemon["types"])
         })
 
       {:error, errors} ->
