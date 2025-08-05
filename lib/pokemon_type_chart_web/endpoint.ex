@@ -1,4 +1,4 @@
-defmodule PokemonTypeChart.Endpoint do
+defmodule PokemonTypeChartWeb.Endpoint do
   use Plug.Builder
 
   plug(Plug.RequestId)
@@ -11,5 +11,5 @@ defmodule PokemonTypeChart.Endpoint do
     json_decoder: JSON
   )
 
-  plug(PokemonTypeChart.Router)
+  plug(PokemonTypeChartWeb.Router)
 end

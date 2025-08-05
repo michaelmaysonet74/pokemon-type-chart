@@ -1,4 +1,4 @@
-defmodule PokemonTypeChart.JSON do
+defmodule PokemonTypeChartWeb.JSON do
   import Plug.Conn
 
   def send(conn, response, status \\ 200) do

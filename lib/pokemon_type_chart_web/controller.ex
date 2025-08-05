@@ -1,7 +1,7 @@
-defmodule PokemonTypeChart.Controller do
-  alias PokemonTypeChart.JSON
-  alias PokemonTypeChart.Service
-  alias PokemonTypeChart.PokemonRequest
+defmodule PokemonTypeChartWeb.Controller do
+  alias PokemonTypeChartWeb.JSON
+  alias PokemonTypeChartWeb.PokemonRequest
+  alias PokemonTypeChart.Effectiveness
 
   def get_pokemon_type_charts(conn) do
     case PokemonRequest.validate(conn.body_params) do
@@ -9,7 +9,7 @@ defmodule PokemonTypeChart.Controller do
         conn
         |> JSON.send(%{
           pokemon: pokemon,
-          type_chart: Service.get_type_chart(pokemon["types"])
+          type_chart: Effectiveness.calculate(pokemon["types"])
         })
 
       {:error, errors} ->
