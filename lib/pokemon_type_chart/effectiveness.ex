@@ -1,15 +1,15 @@
-defmodule PokemonTypeChart.Service do
+defmodule PokemonTypeChart.Effectiveness do
   alias PokemonTypeChart.Chart
   alias PokemonTypeChart.Type
 
-  def get_type_chart(types) when is_list(types) and length(types) <= 2 do
+  def calculate(%{"types" => types}) when is_list(types) and length(types) <= 2 do
     types
     |> Type.normalize_types()
     |> Enum.map(&Chart.get_chart_by_type/1)
     |> merge()
   end
 
-  def get_type_chart(_), do: Chart.empty()
+  def calculate(_), do: Chart.empty()
 
   defp merge(charts) do
     weaknesses = get_weaknesses(charts)

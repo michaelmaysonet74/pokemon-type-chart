@@ -6,7 +6,7 @@ defmodule PokemonTypeChart.Application do
     children = [
       {
         Bandit,
-        plug: PokemonTypeChart.Endpoint, port: Application.get_env(:pokemon_type_chart, :port)
+        plug: PokemonTypeChartWeb.Endpoint, port: Application.get_env(:pokemon_type_chart, :port)
       }
     ]
 
