@@ -24,7 +24,7 @@ defmodule PokemonTypeChartWeb.PokemonRequest do
   defp types_custom_rule(%{value: types}) do
     case {length(types) > 2, Type.valid_types?(types)} do
       {true, _} ->
-        Validate.Validator.error("types must be a list of up to 2 valid types")
+        Validate.Validator.error("must be a list of up to 2 valid types")
 
       {_, false} ->
         Validate.Validator.error("invalid types provided")
