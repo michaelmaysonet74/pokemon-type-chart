@@ -2,7 +2,7 @@ defmodule PokemonTypeChart.Effectiveness do
   alias PokemonTypeChart.Chart
   alias PokemonTypeChart.Type
 
-  def calculate(types) when is_list(types) and length(types) <= 2 do
+  def calculate(%{"types" => types}) when is_list(types) and length(types) <= 2 do
     types
     |> Type.normalize_types()
     |> Enum.map(&Chart.get_chart_by_type/1)

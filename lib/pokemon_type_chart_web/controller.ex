@@ -9,7 +9,7 @@ defmodule PokemonTypeChartWeb.Controller do
         conn
         |> JSON.send(%{
           pokemon: pokemon,
-          type_chart: Effectiveness.calculate(pokemon["types"])
+          type_chart: Effectiveness.calculate(pokemon)
         })
 
       {:error, errors} ->
