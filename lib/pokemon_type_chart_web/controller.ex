@@ -3,7 +3,7 @@ defmodule PokemonTypeChartWeb.Controller do
   alias PokemonTypeChartWeb.PokemonRequest
   alias PokemonTypeChart.Effectiveness
 
-  def get_pokemon_type_charts(conn) do
+  def get_pokemon_effectiveness(conn) do
     case PokemonRequest.validate(conn.body_params) do
       {:ok, %{"pokemon" => pokemon}} ->
         conn

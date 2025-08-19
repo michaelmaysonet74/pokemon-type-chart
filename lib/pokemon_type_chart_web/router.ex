@@ -5,7 +5,7 @@ defmodule PokemonTypeChartWeb.Router do
   plug(:dispatch)
 
   post "/pokemon/effectiveness" do
-    PokemonTypeChartWeb.Controller.get_pokemon_type_charts(conn)
+    PokemonTypeChartWeb.Controller.get_pokemon_effectiveness(conn)
   end
 
   match _ do
