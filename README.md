@@ -22,7 +22,7 @@ Start the server:
 mix run --no-halt
 ```
 
-Send a POST request to `/pokemon/type-charts` with a JSON body:
+Send a POST request to `/pokemon/effectiveness` with a JSON body:
 
 ```json
 {
@@ -39,7 +39,7 @@ Send a POST request to `/pokemon/type-charts` with a JSON body:
 Example using `curl`:
 
 ```sh
-curl -X POST http://localhost:4001/pokemon/type-charts \
+curl -X POST http://localhost:4001/pokemon/effectiveness \
   -H "Content-Type: application/json" \
   -d '{"pokemon": {"name": "Dragonite", "types": ["Dragon", "Flying"]}}'
 ```
@@ -60,7 +60,7 @@ docker run -p 4001:4001 pokemon_type_chart
 
 ### API
 
-- **POST /pokemon/type-charts**
+- **POST /pokemon/effectiveness**
 
     Request body:
     ```json
@@ -78,7 +78,7 @@ docker run -p 4001:4001 pokemon_type_chart
             "name": "string",
             "types": ["string"]
         },
-        "type_chart": {
+        "effectiveness": {
             "weaknesses": ["string"],
             "resitances": ["string"],
             "immunities": ["string"]
