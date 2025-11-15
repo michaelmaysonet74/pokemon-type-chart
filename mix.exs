@@ -4,8 +4,8 @@ defmodule PokemonTypeChart.MixProject do
   def project do
     [
       app: :pokemon_type_chart,
-      version: "1.0.0",
-      elixir: "~> 1.18",
+      version: "1.1.0",
+      elixir: "~> 1.19",
       start_permanent: Mix.env() == :prod,
       deps: deps() ++ dev_deps()
     ]

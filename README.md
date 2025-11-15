@@ -6,7 +6,7 @@ Microservice for retrieving Pokémon type effectiveness chart.
 
 ### Requirements
 
-Elixir `v1.18.0`
+Elixir `v1.19.0`
 
 ### Usage
 
