@@ -25,7 +25,7 @@ defmodule PokemonTypeChart.Type do
   def normalize_types(types) when is_list(types) do
     types
     |> Enum.filter(&valid?/1)
-    |> Enum.map(&normalize_type/1)
+    |> Enum.map(&String.downcase/1)
   end
 
   def normalize_types(_), do: []
@@ -33,19 +33,7 @@ defmodule PokemonTypeChart.Type do
   def format_types(types) do
     types
     |> Enum.uniq()
-    |> Enum.map(&capitalize_type/1)
-  end
-
-  defp capitalize_type(type) do
-    type
-    |> Atom.to_string()
-    |> String.capitalize()
-  end
-
-  defp normalize_type(type) do
-    type
-    |> String.downcase()
-    |> String.to_existing_atom()
+    |> Enum.map(&String.capitalize/1)
   end
 
   defp valid?(type) when is_binary(type) do

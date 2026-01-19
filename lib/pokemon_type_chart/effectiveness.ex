@@ -23,11 +23,11 @@ defmodule PokemonTypeChart.Effectiveness do
     }
   end
 
-  defp get_weaknesses(charts), do: format_types(charts, :weaknesses)
+  defp get_weaknesses(charts), do: format_types(charts, "weaknesses")
 
-  defp get_resistances(charts), do: format_types(charts, :resistances)
+  defp get_resistances(charts), do: format_types(charts, "resistances")
 
-  defp get_immunities(charts), do: format_types(charts, :immunities)
+  defp get_immunities(charts), do: format_types(charts, "immunities")
 
   defp format_types(chart, field) do
     chart
